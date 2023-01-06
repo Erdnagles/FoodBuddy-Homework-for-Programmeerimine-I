@@ -1,0 +1,38 @@
+﻿@model FoodBuddy.Data.RecipeListVm
+@{
+}
+
+<div class="tbl-container">
+    <h2>Recipes</h2>
+
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Genre</th>
+            <th>Released</th>
+            <th>Image</th>
+            <th>Ingredients</th>
+            <th>Guide</th>
+            <th>Action</th>
+        </tr>
+        @foreach (var item in Model.RecipeList)
+        {
+            <tr>
+                <td>@item.Title</td>
+                    <td>@item.GenreNames</td>
+                    <td>@item.ReleaseDate</td>
+                <td><img style="height:100px;width:100px" src="/Uploads/@item.RecipeImage"/></td>
+                    <td>@item.Description</td>
+                    <td>@item.Guide</td>
+                <td>
+                    <a href="/Recipe/Edit?id=@item.Id" class="btn btn-default"><i class="fa fa-edit"></i></a>
+                    <a onclick="return window.confirm('Are you sure?')" href="/Recipe/Delete?id=@item.Id" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                </td>
+            </tr>
+        }
+
+    </table>
+    <div class="input-container">
+        <a href="/Recipe/Add" class="btn btn-sec">Back</a>
+    </div>
+</div>

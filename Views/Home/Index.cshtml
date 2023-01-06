@@ -1,0 +1,44 @@
+﻿@model FoodBuddy.Data.RecipeListVm
+@{
+    Layout = "_Layout";
+}
+<section class="search-bar">
+    <form method="get" asp-action="Index">
+        <input type="text" name="term" placeholder="search here">
+        <button type="submit"><i class="fa fa-search"></i></button>
+        <a class="btn btn-default" href="/Home/Index">All</a>
+    </form>
+</section>
+<section class="recipes">
+    @foreach (var recipe in Model.RecipeList)
+    {
+        <div class="recipe-card" onclick="window.location.href='/Home/RecipeDetail?recipeId=@recipe.Id'">
+            <div class="recipe-image">
+                <img src="/Uploads/@recipe.RecipeImage">
+            </div>
+            <div class="recipe-info">
+                <h4>@recipe.Title</h4>
+                <h4>@recipe.GenreNames</h4>
+                <h4>@recipe.ReleaseDate</h4>
+                @* <h4>Description : @recipe.Description</h4>
+            <h4>Guide : @recipe.Guide</h4>*@
+            </div>
+        </div>
+    }
+</section>
+
+<div class="pagination">
+    @for (int i = 1; i <= Model.TotalPages; i++)
+    {
+        if (i == Model.CurrentPage)
+        {
+            <a href="/Home/Index?currentPage=@i&term=@Model.Term" class="active">@i</a>
+        }
+        else
+        {
+            <a href="/Home/Index?currentPage=@i&term=@Model.Term">@i</a>
+
+        }
+    }
+</div>
+
