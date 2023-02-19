@@ -12,21 +12,22 @@ namespace FoodBuddy.Controllers
         {
             this.authService = authService;
         }
-        //public async Task<IActionResult> Register()
-        //{
-        //    var model = new RegistrationModel
-        //    {
-        //        Email = "admin@gmail.com",
-        //        Username = "admin",
-        //        Name = "Andre",
-        //        Password = "Admin!1",
-        //        PasswordConfirm = "Admin!1",
-        //        Role = "Admin",
-        //    };
 
-        //    var result = await authService.RegisterAsync(model);
-        //    return Ok(result.Message);
-        //}
+        public async Task<IActionResult> Register()
+        {
+            var model = new RegistrationModel
+            {
+                Email = "admin@gmail.com",
+                Username = "Admin",
+                Name = "Andre",
+                Password = "Admin!1",
+                PasswordConfirm = "Admin!1",
+                Role = "Admin",
+            };
+
+            var result = await authService.RegisterAsync(model);
+            return Ok(result.Message);
+        }
 
         public async Task<IActionResult> Login()
         {
