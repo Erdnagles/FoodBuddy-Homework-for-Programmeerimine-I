@@ -10,7 +10,7 @@ Update-Database
 2. Run project in IIS Express
 
 ## Account creation for login
-1. In UserAuthenticationController remove block comment on Register() method
+1. In UserAuthenticationController uncomment Register() method
 2. Run project
 3. To complete registration visit: https://localhost:your_port/UserAuthentication/Register
 4. If "You have registered successfully" comes up you can login with details from Register() method

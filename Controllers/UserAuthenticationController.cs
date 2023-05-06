@@ -13,7 +13,7 @@ namespace FoodBuddy.Controllers
             this.authService = authService;
         }
 
-        public async Task<IActionResult> Register()
+/*        public async Task<IActionResult> Register()
         {
             var model = new RegistrationModel
             {
@@ -27,7 +27,7 @@ namespace FoodBuddy.Controllers
 
             var result = await authService.RegisterAsync(model);
             return Ok(result.Message);
-        }
+        }*/
 
         public async Task<IActionResult> Login()
         {
