@@ -1,6 +1,5 @@
 ﻿using FoodBuddy.Data;
 using FoodBuddy.Models;
-using Microsoft.EntityFrameworkCore.Storage;
 
 namespace FoodBuddy.Services
 {
